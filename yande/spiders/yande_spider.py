@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import scrapy
-
 from yande.items import YandeItem
 
 
@@ -21,7 +20,6 @@ class YandeSpider(scrapy.Spider):
         item = YandeItem()
         item['link'] = links
         yield item
-
         next_page = response.xpath('//a[@class="next_page"]/@href')
         if next_page:
             url = response.urljoin(next_page[0].extract())
